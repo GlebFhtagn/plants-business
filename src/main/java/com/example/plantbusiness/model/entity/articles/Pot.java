@@ -3,24 +3,27 @@ package com.example.plantbusiness.model.entity.articles;
 import com.example.plantbusiness.model.entity.Material;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-import java.util.UUID;
-
-
-@Table(name = "pots")
-@Entity
-public class Pot extends Article {
-
-    int volume;
-
-    double price;
+@Entity @Table(name = "pots")
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class Pot extends AbstractPersistable<Long> {
 
     String name;
 
+    int volume;
+
     @ManyToOne
     Material material;
+
+    @OneToOne
+    Article article;
 
 }

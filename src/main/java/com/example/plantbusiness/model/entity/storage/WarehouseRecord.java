@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -18,9 +16,8 @@ import java.util.Map;
 @AllArgsConstructor
 public class WarehouseRecord extends AbstractPersistable<Long> {
 
-    //на какой id будет ссылаться эта таблица
-//    @OneToOne
-//    Article article;
+    @OneToOne
+    Article article;
 
     int quantity;
 
