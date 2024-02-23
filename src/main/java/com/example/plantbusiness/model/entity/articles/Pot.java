@@ -9,8 +9,8 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-@Entity @Table(name = "pots")
-@Getter @Setter
+@Entity @Table(name = "pots") @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -18,7 +18,7 @@ public class Pot extends AbstractPersistable<Long> {
 
     String name;
 
-    int volume;
+    Long volume;
 
     @ManyToOne
     Material material;

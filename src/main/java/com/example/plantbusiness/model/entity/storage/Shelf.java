@@ -11,13 +11,13 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import java.util.List;
 
-@Table(name = "shelfs")
+@Entity @Table(name = "SHELFS") @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Shelf extends AbstractPersistable<Long> {
 
     String name;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     List<Plant> plantList;
 }

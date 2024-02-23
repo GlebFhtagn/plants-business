@@ -30,7 +30,7 @@ public class Plant extends AbstractPersistable<Long> {
     String name;
 
     @Column
-    int price;
+    double price;
 
     @ManyToOne
     Pot pot;

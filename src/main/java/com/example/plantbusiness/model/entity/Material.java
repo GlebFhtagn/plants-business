@@ -1,15 +1,12 @@
 package com.example.plantbusiness.model.entity;
 
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Table;
+import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-@Entity
+@Entity @Data @Table(name = "MATERIALS")
 @Builder
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Material extends AbstractPersistable<Long> {
