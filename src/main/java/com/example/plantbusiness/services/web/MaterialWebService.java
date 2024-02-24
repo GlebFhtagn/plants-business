@@ -1,8 +1,7 @@
 package com.example.plantbusiness.services.web;
 
-import com.example.plantbusiness.model.dto.CreatedMaterialDto;
-import com.example.plantbusiness.model.dto.MaterialDto;
-import com.example.plantbusiness.model.entity.Material;
+import com.example.plantbusiness.dto.CreatedMaterialDto;
+import com.example.plantbusiness.dto.MaterialDto;
 import com.example.plantbusiness.services.app.MaterialAppServiceImpl;
 import com.example.plantbusiness.services.mapper.MaterialMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +38,9 @@ public class MaterialWebService {
         );
     }
 
-    public CreatedMaterialDto update(MaterialDto materialDto) {
+    public CreatedMaterialDto update(Long id, MaterialDto materialDto) {
         return mapper.toDto(
-                appService.update(
+                appService.update(id,
                         mapper.toEntity(materialDto)
                 )
         );

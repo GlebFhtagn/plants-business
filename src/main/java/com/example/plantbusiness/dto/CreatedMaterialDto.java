@@ -1,16 +1,17 @@
-package com.example.plantbusiness.model.dto;
+package com.example.plantbusiness.dto;
 
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import jakarta.annotation.Nonnull;
 import lombok.Builder;
+import lombok.Getter;
 
-@Builder
+@Builder @Getter
 public class CreatedMaterialDto {
 
     @Nonnull
     Long id;
 
     @Nonnull
-    @JsonUnwrapped
+//    @JsonUnwrapped
     MaterialDto value;
 }

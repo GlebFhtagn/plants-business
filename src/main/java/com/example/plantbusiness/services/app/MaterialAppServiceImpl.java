@@ -32,8 +32,8 @@ public class MaterialAppServiceImpl implements MaterialAppService{
         return repository.save(material);
     }
 
-    public Material update(Material material) {
-        Material persistedMaterial = repository.findById(material.getId()).orElseThrow(EntityNotFoundException::new);
+    public Material update(Long id, Material material) {
+        Material persistedMaterial = repository.findById(id).orElseThrow(EntityNotFoundException::new);
         persistedMaterial = merger.merge(persistedMaterial, material);
         repository.save(persistedMaterial);
         return persistedMaterial;

@@ -53,12 +53,12 @@ class PlantBusinessApplicationTests {
     ShelfRepository shelfRepository;
 
 
-    static Material TEST_MATERIAL = Material.builder().name("Ceramic").build();
-    static PlantSpecies TEST_SPECIES = PlantSpecies.builder().name("Garganza").build();
+    static Material TEST_MATERIAL = new Material("Ceramic");
+    static PlantSpecies TEST_SPECIES = new PlantSpecies("Garganza");
     static Article TEST_ARTICLE = Article.builder()
             .name("Article Test Pot")
             .description("This is test pot, not for sale")
-            .barcode(14352345L)
+            .barcode(14352346L)
             .price(1000)
             .build();
     static Article TEST_ARTICLE_1 = Article.builder()
@@ -67,16 +67,21 @@ class PlantBusinessApplicationTests {
             .barcode(14352345L)
             .price(1000)
             .build();
-    static Pot TEST_POT = Pot.builder()
-            .name("Actual Physical Pot")
+    static Pot TEST_POT = Pot.potBuilder()
+//            .name("Actual Physical Pot")
             .material(TEST_MATERIAL)
             .volume(18888L)
-            .article(TEST_ARTICLE)
+//            .article(TEST_ARTICLE)
             .build();
-    static Seed TEST_SEED = Seed.builder()
+    static Seed TEST_SEED = Seed.seedBuilder()
             .name("Actual Physical sEED")
+            .description("This is test seeds, not for sale")
+            .barcode(14352345L)
+            .price(1000)
+//            .name("Actual Physical sEED")
+            .weight(50L)
             .species(TEST_SPECIES)
-            .article(TEST_ARTICLE_1)
+//            .article(TEST_ARTICLE_1)
             .build();
 
 
@@ -112,7 +117,7 @@ class PlantBusinessApplicationTests {
         Plant plant1 = new Plant();
         plant.setPot(TEST_POT);
         plant.setSeed(TEST_SEED);
-        plant.setPrice(TEST_POT.getArticle().getPrice() + TEST_SEED.getArticle().getPrice() + 100);
+        plant.setPrice(TEST_POT.getPrice() + TEST_SEED.getPrice() + 100);
 
         batchSave(plant, plant1);
 

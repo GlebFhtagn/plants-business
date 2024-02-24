@@ -1,9 +1,7 @@
 package com.example.plantbusiness.model.entity.storage;
 
 import com.example.plantbusiness.model.entity.Plant;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
