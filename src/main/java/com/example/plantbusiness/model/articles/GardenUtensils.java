@@ -1,8 +1,9 @@
-package com.example.plantbusiness.model.entity.articles;
+package com.example.plantbusiness.model.articles;
 
-import com.example.plantbusiness.model.entity.Material;
+import com.example.plantbusiness.model.Material;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -12,9 +13,9 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
-@Entity
-@Data
+@Entity @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @DiscriminatorValue("u")
@@ -23,7 +24,7 @@ public class GardenUtensils extends Article {
 
     Long unitsInPack;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     Material material;
 
     @Builder(builderMethodName = "utensilsBuilder")
@@ -32,5 +33,19 @@ public class GardenUtensils extends Article {
         super(name, description, barcode, price, expirationDate, weight);
         setMaterial(material);
         setUnitsInPack(unitsInPack);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        GardenUtensils object = (GardenUtensils) o;
+        return Objects.equals(unitsInPack, object.getUnitsInPack());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), unitsInPack);
     }
 }

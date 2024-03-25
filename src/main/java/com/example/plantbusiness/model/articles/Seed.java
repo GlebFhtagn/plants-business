@@ -1,12 +1,12 @@
-package com.example.plantbusiness.model.entity.articles;
+package com.example.plantbusiness.model.articles;
 
-import com.example.plantbusiness.model.entity.PlantSpecies;
+import com.example.plantbusiness.model.PlantSpecies;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity @Data
 @NoArgsConstructor
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Seed extends Article {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     PlantSpecies species;
 
     @Builder(builderMethodName = "seedBuilder")
@@ -23,5 +23,18 @@ public class Seed extends Article {
                 double weight, PlantSpecies species){
         super(name, description, barcode, price, expirationDate, weight);
         setSpecies(species);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }

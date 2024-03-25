@@ -2,7 +2,7 @@ package com.example.plantbusiness.services.mapper;
 
 import com.example.plantbusiness.dto.CreatedMaterialDto;
 import com.example.plantbusiness.dto.MaterialDto;
-import com.example.plantbusiness.model.entity.Material;
+import com.example.plantbusiness.model.Material;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,7 +1,7 @@
 package com.example.plantbusiness.services;
 
-import com.example.plantbusiness.model.entity.Plant;
-import com.example.plantbusiness.model.entity.articles.Article;
+import com.example.plantbusiness.model.Plant;
+import com.example.plantbusiness.model.articles.Article;
 import com.example.plantbusiness.repositories.ArticleRepository;
 import com.example.plantbusiness.repositories.ShelfRepository;
 import org.springframework.beans.factory.annotation.Autowired;

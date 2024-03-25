@@ -1,13 +1,13 @@
 package com.example.plantbusiness.services.app;
 
-import com.example.plantbusiness.model.entity.Material;
+import com.example.plantbusiness.model.Material;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public interface MaterialAppService {
-    public List<Material> getAll();
+    List<Material> getAll();
 
-    public Material getById(Long id);
+    Material getById(Long id);
 }

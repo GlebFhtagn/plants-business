@@ -1,6 +1,6 @@
 package com.example.plantbusiness.services.app;
 
-import com.example.plantbusiness.model.entity.Material;
+import com.example.plantbusiness.model.Material;
 import com.example.plantbusiness.repositories.MaterialRepository;
 import com.example.plantbusiness.services.merger.MaterialMerger;
 import jakarta.persistence.EntityNotFoundException;

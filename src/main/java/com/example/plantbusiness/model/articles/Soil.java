@@ -1,7 +1,6 @@
-package com.example.plantbusiness.model.entity.articles;
+package com.example.plantbusiness.model.articles;
 
-import com.example.plantbusiness.model.entity.Material;
-import com.example.plantbusiness.model.entity.SoilType;
+import com.example.plantbusiness.model.SoilType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -9,6 +8,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity @Data
 @AllArgsConstructor
@@ -28,5 +28,19 @@ public class Soil extends Article{
         super(name, description, barcode, price, expirationDate, weight);
         setVolume(volume);
         setSoilType(soilType);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Soil soil = (Soil) o;
+        return Objects.equals(volume, soil.volume);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), volume);
     }
 }
